@@ -1,0 +1,53 @@
+
+{% extends "accounts/base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="content-container laika">
+        <h1>Profile</h1>
+
+        <div class="profile-form-container">
+            <form method="post" enctype="multipart/form-data" class="profile-form">{% csrf_token %}
+                <div class="profile-image-container">
+                    {% if user.lpu.image %}
+                        <img src="{{ user.lpu.image.url }}" class="profile-image">
+                    {% else %}
+                        <img src="{% static 'images/laika_logo_400.png' %}" class="profile-image">
+                    {% endif %}
+                </div>
+
+                <div class="form-columns-container">
+                    <div class="column">
+                        {{ profile_form.as_p }}
+                    </div>
+                    <div class="column">
+                        {{ pet_form.as_p }}
+                    </div>
+                </div>
+
+                <input type="submit" value="Save" class="submit-button">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% comment %} {% extends "laika/base.html" %}
+
+{% block content %}
+    <br><br><br>
+    <h1>Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ profile_form.as_p }}
+        <button type="submit" value="Create">Save Profile</button>
+    </form>
+    <br>
+     <h1>Add Pet</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ pet_form.as_p }}
+        <button type="submit" value="Create">Add Pet</button>
+    </form>  
+{% endblock %} {% endcomment %}

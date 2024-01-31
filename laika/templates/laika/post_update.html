@@ -1,0 +1,24 @@
+{% extends "laika/base.html" %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Edit Post</h1>
+        
+        <div class="edit-post-container">
+            <form method="post" enctype="multipart/form-data" class="edit-post-form">
+                {% csrf_token %}
+                <div class="form-fields">
+                    {{ form.as_p }}
+                </div>
+                {% if form.instance.image %}
+                    <p>Image:</p>
+                    <img src="{{ form.instance.image.url }}" alt="image" class="post-image">
+                {% endif %}
+                <div class="form-actions">
+                    <button type="submit" class="save-button">Save</button>
+                    <a href="{% url 'laika-post-detail' form.instance.pk %}" class="cancel-button">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

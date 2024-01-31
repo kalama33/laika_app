@@ -1,0 +1,14 @@
+{% extends "laika/base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="get" class="search-form">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    {% for post in results %}
+        <!-- Display each post -->
+    {% empty %}
+        <p>No posts found matching your query.</p>
+    {% endfor %}
+{% endblock %}

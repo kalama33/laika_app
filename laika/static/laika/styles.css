@@ -1,0 +1,213 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Basic styles for the entire body of the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Basic styles for the entire body of the page */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+/* Styling for the header and navigation */
+header {
+    background-color: #ff0099;
+    color: white;
+    padding: 30px 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ff0099;
+    padding: 10px 20px;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.container-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 4px;
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a,
+.navbar-nav .nav-item,
+.navbar-nav .nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#logo
+        {
+    height: 70px;
+    width: 70px;
+    margin-left: 20px;
+    border-radius: 4px;
+    
+}
+
+#laika_logo
+        {
+    height: 70px;
+    width: auto;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+.navbar-button {
+    background-color: white;
+    color: #ff0099;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.navbar-button:hover {
+    background-color: #ff99cc;
+    color: white;
+}
+
+/* Main Content */
+main, .landing-text, .content-container, .form-container, .profile-form-container, 
+.messages-container, .edit-post-container, .delete-post-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    max-width: 1200px; 
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    line-height: 1.6; 
+}
+
+.profile-container .left-column, 
+.profile-container .right-column {
+    flex: 1;
+    min-width: 300px; 
+    padding: 10px;
+}
+
+/* Form Styles */
+input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* User and Post Listings */
+.users-list li, .posts-list .post-item, .message {
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+/* Profile and Post Images */
+.profile-image, .post-image, .author-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    display: block;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.user-photo img, .post-photo img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin: 5px;
+}
+
+.user-info, .post-info {
+    margin: 10px 0;
+    font-size: 18px;
+} 
+
+/* Styles for the footer */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 24px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        font-size: 20px;
+    }
+    
+
+@media (max-width: 768px) {
+    .form-columns-container {
+        flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        min-width: 100%;
+    }
+}

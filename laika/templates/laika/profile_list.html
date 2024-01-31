@@ -1,0 +1,51 @@
+{% extends 'laika/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="users-list">
+        <h2>Profiles</h2>
+        <ul>
+            {% for profile in profiles %}
+                <li class="user-item">
+                    <div class="user-photo">
+                        {% if profile.image %}
+                            <img src="{{ profile.image.url }}" alt="Photo of {{ profile.laika_user.username }}" class="profile-photo">
+                        {% else %}
+                            <img src="{% static 'laika/laika_logo_400.png' %}" alt="Default Image" class="profile-photo">
+                        {% endif %}
+                    </div>
+                    <div class="user-info">
+                        <p><strong>User:</strong> {{ profile.laika_user.username }}</p>
+                        <br>
+
+                        <!-- info about user's pet -->
+                        {% with profile.laika_user.pet_set.all as pets %}
+                            {% for pet in pets %}
+                                <p><strong>Pet:</strong> {{ pet.pet_name }} ({{ pet.species }})</p>
+                                <p><strong>Age:</strong> {{ pet.age}}</p>
+                                <p><strong>Sex:</strong> {{ pet.sex }}</p>
+                                <p><strong>Neutered:</strong> {{ pet.neutered }}</p>
+                                <p><strong>Weight:</strong> {{ pet.weight}}</p>
+                                <br>
+                                <div class="visit">
+                                    <a href="{% url 'laika-profile-detail' pk=profile.pk %}">Visit</a> 
+                                </div>
+                                
+                            {% empty %}
+                                <p>No pets registered.</p>
+                            {% endfor %}
+                        {% endwith %}
+
+                        
+                        <!-- <p><strong>Status:</strong> {% if profile.is_online %}Online{% else %}Offline{% endif %}</p> -->
+                        <!-- <p><strong>Distance:</strong> distance  km</p> -->
+                    </div>
+                </li>
+            {% empty %}
+                <p>No profiles available.</p>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+

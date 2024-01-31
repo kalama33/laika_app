@@ -1,0 +1,20 @@
+{% extends 'laika/base.html' %}
+
+{% block content %}
+    <h2>Inbox</h2>
+    <br>
+    {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="message">
+                    <strong>From:</strong> {{ message.sender.username }}
+                    <p>{{ message.content }}</p>
+                    <p><small>Sent: {{ message.sent_at }}</small></p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You have no messages.</p>
+    {% endif %}
+{% endblock %}
+

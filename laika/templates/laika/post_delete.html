@@ -1,0 +1,20 @@
+{% extends "laika/base.html" %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Delete Post</h1>
+        <div class="delete-post-container">
+            <br>
+            <p>Are you sure?</p>
+            <br>
+            <p><strong>Title:</strong> {{ post.title }}</p>
+            <br>
+            <p><strong>Description:</strong> {{ post.description }}</p>
+            <form method="post" class="delete-post-form">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">Confirm</button>
+                <a href="{% url 'laika-post-detail' post.pk %}" class="cancel-button">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

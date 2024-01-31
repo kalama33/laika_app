@@ -1,0 +1,26 @@
+{% extends "laika/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Create New Post</h1>
+        
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data" class="post-form">
+                {% csrf_token %}
+                <div class="form-fields">
+                    {{ form.as_p }}
+                </div>
+                <input type="submit" value="Create" class="submit-button">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+{% extends 'laika/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="left-column">
+        <div class="user-info">
+            <h2>Profile of {{ object.laika_user.username }}</h2>
+            <div class="user-photo">
+                {% if object.image %}
+                    <img src="{{ object.image.url }}" alt="Photo of {{ object.laika_user.username }}" class="profile-photo">
+                {% else %}
+                    <img src="{% static 'laika/laika_logo_400.png' %}" alt="Default Image" class="profile-photo">
+                {% endif %}
+            </div>
+            <p><strong>User Name:</strong> {{ object.laika_user.username }}</p>
+        </div>
+
+        <div class="pet-info">
+            <h3>Pet Information</h3>
+            {% for pet in object.laika_user.pet_set.all %}
+                <div class="pet-details">
+                    <p><strong>Pet Name:</strong> {{ pet.pet_name }}</p>
+                    <p><strong>Species:</strong> {{ pet.species }}</p>
+                    <p><strong>Age:</strong> {{ pet.age }} years</p>
+                    <p><strong>Sex:</strong> {{ pet.sex }}</p>
+                    <p><strong>Neutered:</strong> {{ pet.neutered }}</p>
+                    <p><strong>Weight:</strong> {{ pet.weight }} kg</p>
+                    <p><strong>Species Type:</strong> {{ pet.species_type }}</p>
+                    <p><strong>Special Needs:</strong> {{ pet.special_needs }}</p>
+                    <p><strong>Description:</strong> {{ pet.description }}</p>
+                </div>
+            {% empty %}
+                <p>No pets registered.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="profile-followers">
+            <p><strong>Followers:</strong> {{ followers_count }}</p>
+        </div>
+  
+        <div class="send-message-form">
+            <h3>Send a Message</h3>
+            <form action="{% url 'send-message' object.laika_user.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+  
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit">Post Comment</button>
+        </form>
+            <br>
+        {% if show_follow_button %}
+            <a href="{% url 'follow-user' user_id=profile.laika_user.id %}">Follow</a>
+            <br>
+            {% endif %}
+            
+        {% if show_unfollow_button %}
+            <a href="{% url 'unfollow-user' user_id=profile.laika_user.id %}">Unfollow</a>
+        {% endif %}
+            <br>
+        <div class="comments">
+            {% for comment in comments %}
+                <div class="comment">
+                    <p>{{ comment.author.username }}: {{ comment.content }}</p>
+                </div>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

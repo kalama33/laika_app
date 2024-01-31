@@ -1,0 +1,16 @@
+{% extends 'laika/base.html' %}
+
+{% block content %}
+    <div class="content-container">
+        <h2>Send Message</h2>
+        <div class="form-container">
+            <form method="post" class="message-form">
+                {% csrf_token %}
+                <div class="form-fields">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="submit-button">Send</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

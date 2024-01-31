@@ -1,0 +1,46 @@
+{% load static %}  <!-- Django template tag to use static files -->
+
+<!DOCTYPE html>
+<html lang="en"> <!-- 'lang' attribute specifies the language of the content -->
+    <head>
+        <meta charset="UTF-8"> <!-- Defines the character encoding for the HTML document -->
+        <link rel="stylesheet" type="text/css" href="{% static 'laika/styles.css' %}"> <!-- Linking external CSS file -->
+        {% include "laika/navbar.html" %} <!-- Including a navbar template -->
+    </head>
+
+    <body>
+        <!-- Main content container -->
+        <div>
+            <!-- Section for landing text -->
+            <div class="landing-text">
+                <!-- Header -->
+                <h1>Welcome to Laika</h1>
+                <br>
+                <!-- Description paragraph -->
+                <p> 
+                    A unique app where pet lovers unite. Designed to bridge
+                    the gap between busy lifestyles and the need for reliable pet care. 
+                    At Laika, you gain access to a network of fellow pet owners who understand and
+                    share the responsibilities of pet parenting. Whether you need a helping hand
+                    for your furry friend or can offer one, Laika is here to ensure that every pet
+                    receives love and care, even when you're away. A supportive
+                    and caring environment for all pets and their owners.
+                </p>
+                <br>
+                <!-- Additional information -->
+                <h3>Because at Laika, every paw counts</h3>
+                <h4>Developer: Alvaro Kalama</h4>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Laika - Your Pet Community</p>
+        </footer>
+    </body>
+</html>
+
+
+
+
+

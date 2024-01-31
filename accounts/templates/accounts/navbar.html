@@ -1,0 +1,32 @@
+{% load static %}  <!-- Loading Django static files -->
+
+<link rel="stylesheet" type="text/css" href="{% static 'laika/styles.css' %}"> <!-- Link to external CSS file -->
+
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="container-container">
+            <!-- Logo with static file reference -->
+            <img src="{% static 'laika/laika_logo_400.png' %}" alt="Laika Logo" id="laika_logo">
+
+            <!-- Conditional rendering based on user authentication -->
+            {% if user.is_authenticated %}
+                <!-- User is logged in -->
+                <a class="navbar-button">Hello <strong>{{ user.username }}</strong></a>
+                <a href="{% url 'home' %}" class="navbar-button nav-item">Home</a>
+                <a href="{% url 'laika-about' %}" class="navbar-button nav-item">About Laika</a>
+                <a href="{% url 'laika-profile' %}" class="navbar-button nav-item">My Profile</a>
+                <a href="{% url 'messages' %}" class="navbar-button nav-item">Inbox</a>
+                <a href="{% url 'laika-profile-list' %}" class="navbar-button nav-item">Profiles</a>
+                <a href="{% url 'laika-post-list' %}" class="navbar-button nav-item">Posts</a>
+                <a class="navbar-button" href="{% url 'account_signout' %}">LogOut</a>
+            {% else %}
+                <!-- User is not logged in -->
+                <a href="{% url 'landing_view' %}" class="nav-item">Landing Page</a>
+                <div class="join-button">
+                    <a class="navbar-button" href="{% url 'account_login' %}">Join!</a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+</body>

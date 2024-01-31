@@ -1,0 +1,31 @@
+{% extends "laika/base.html" %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="content-container">
+    <h1>{{post.title}}</h1>
+    {% if post.image %}
+        <img src="{{ post.image.url }}" class="post-image">
+    {% endif %} 
+    <br>
+    <p><strong>Description:</strong> {{post.description}}</p>
+    <br>
+    <p><strong>Author:</strong> {{post.author}}</p>
+    <br>
+    <p> {{ post.author.pet_set.first.pet_name}}</p>
+
+    {% if post.author.lpu.image %}
+        <img src="{{ post.author.lpu.image.url }} "class="author-image">
+    {% endif %}
+    
+    {% if user == post.author or user.is_staff %}
+        <div class="post-actions">
+            <a href="{% url 'laika-post-update' post.pk %}">Update</a>
+            <a href="{% url 'laika-post-delete' post.pk %}">Delete</a>
+        </div>
+    {% endif %}
+    {% endblock %}
+
+

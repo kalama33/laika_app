@@ -1,0 +1,203 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Basic styles for the entire body of the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #ff99cc, #ff66a5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Styling for the header and navigation */
+header {
+    background-color: #ff0099;
+    color: white;
+    padding: 30px 0;
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ff0099;
+    padding: 30px 0;
+}
+
+nav .container-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 0;
+    font-size: 24px;
+}
+
+div.join-button {
+    background-color: white;
+    color: #ff0099;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 180px;
+}
+
+#laika_logo {
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.logo-img {
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.navbar-button {
+    background-color: white;
+    color: #ff0099;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 60px;
+    text-decoration: none; 
+}
+
+.navbar-button:hover {
+    background-color: #ff99cc;
+    color: white;
+}
+
+
+
+/* Styles for the main content */
+
+div.landing-text {
+    
+    padding: 60px;
+    color: black;
+    text-align: justify;
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+main {
+    padding: 60px;
+    color: black;
+    text-align: justify;
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+/* Styles for forms and labels */
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Styles for user and post listings */
+.users-list li, .posts-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    font-size: 20px;
+}
+
+.user-item, .post-item {
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+
+/* Styles for profile and post images */
+.user-photo img, .post-photo img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin: 5px;
+}
+
+.user-info, .post-info {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* Styles for profile and post cards */
+.card {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.card-body {
+    margin-top: 10px;
+}
+
+.card-footer {
+    font-size: 12px;
+    text-align: right;
+}
+
+/* Styles for the footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 24px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        font-size: 20px;
+    }
+    /* Other responsive styles as needed */
+}

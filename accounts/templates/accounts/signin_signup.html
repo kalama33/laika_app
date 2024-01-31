@@ -1,0 +1,66 @@
+{% load i18n %}  <!-- Loading internationalization tags -->
+{% load account socialaccount %}  <!-- Loading account and social account tags -->
+{% load crispy_forms_filters %}  <!-- Loading crispy forms filters -->
+
+<div class="test">
+    <!-- Navbar section -->
+    <div class="navbar">
+        {% include "accounts/navbar.html" %} <!-- Including navbar template -->
+    </div>
+
+    <div class="main">
+        <!-- Hidden checkbox for style purposes -->
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <!-- Login form -->
+        <div class="login">
+            <form action="{% url 'signin' %}" method="post">{% csrf_token %}
+                <!-- CSRF token for security -->
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="text" name='username' placeholder="User name" required>
+                <input type="password" name='password' placeholder="Password" required>
+                <button>Sign in</button>
+                <!-- Link for password reset -->
+                <a class="button secondaryAction text-center" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+                <hr>
+                <!-- Social account login options -->
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="text-center">
+                        {% get_providers as socialaccount_providers %} 
+                        {% if socialaccount_providers %}
+                            {% blocktrans with site.name as site_name %}Sign in with:{% endblocktrans %}
+                            
+                            <div class="socialaccount_ballot">
+                                <div class="socialaccount_providers">
+                                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                                </div>
+                            </div>
+                            
+                            {% include "socialaccount/snippets/login_extra.html" %}
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Signup form -->
+        <div class="signup">
+            <form action="{% url 'signup' %}" method="post">{% csrf_token %}
+                <label for="chk" aria-hidden="true">Sign up!</label>
+                <input type="text" name='username' placeholder="User name" required>
+                <input type="email" name='email' placeholder="Email" required>
+                <input type="password" name='password1' placeholder="Password" required>
+                <input type="password" name='password2' placeholder="Confirm password" required>
+                <button>Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
