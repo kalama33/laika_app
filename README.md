@@ -8,9 +8,7 @@ A unique app where pet lovers unite. Designed to bridge the gap between busy lif
 
 -Enhanced User Authentication: The site uses Django-allauth for advanced user authentication, including email confirmation for registration, password reset, and email management.
 
--Custom Validations: Custom Regex-based validation is implemented for article titles, ensuring data integrity and user-friendly experiences.
-
--Media Handling: The application supports live photo and video previews during article creation or editing, enhancing user interaction. It includes an EmbedVideoField for seamless video integration.
+-Media Handling: The application supports live photo during article creation or editing, enhancing user interaction. 
 
 -User Profiles: Handy user profiles are available, showcasing user statistics and integrated account management features provided by Django-allauth.
 
